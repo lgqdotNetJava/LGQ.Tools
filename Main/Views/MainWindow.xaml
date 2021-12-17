@@ -1,0 +1,34 @@
+﻿<Window xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        x:Class="Main.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="350" Width="525">
+    <Window.Resources>
+        <Style TargetType="syncfusion:TabItemExt">
+            <Setter Property="Header" Value="{Binding DataContext.Title}"/>
+        </Style>
+        <Style TargetType="TabItem">
+            <Setter Property="Header" Value="{Binding DataContext.Title}"/>
+        </Style>
+        <Style TargetType="syncfusion:MenuAdv">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel LastChildFill="True">
+        <syncfusion:MenuAdv>
+            <syncfusion:MenuItemAdv Header="模块A">
+                <syncfusion:MenuItemAdv Header="View A" Command="{Binding NavigateCommand}" CommandParameter="ViewA" Margin="5" />
+                <syncfusion:MenuItemAdv Header="View B" Command="{Binding NavigateCommand}" CommandParameter="ViewB" Margin="5" />
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="模块B">
+                <!--PersonList-->
+                <syncfusion:MenuItemAdv Header="PersonList" Command="{Binding NavigateCommand}" CommandParameter="PersonList" Margin="5" />
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="模块C" />
+        </syncfusion:MenuAdv>
+        <syncfusion:TabControlExt prism:RegionManager.RegionName="ContentRegion" Margin="10"/>
+    </DockPanel>
+</Window>
