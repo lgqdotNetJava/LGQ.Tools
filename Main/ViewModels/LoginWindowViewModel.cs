@@ -7,6 +7,10 @@ namespace Main.ViewModels
 {
     public class LoginWindowViewModel : BindableBase
     {
+        public delegate void LoginSucessHandler();
+
+        public event LoginSucessHandler OnLoginSucess;
+
         private string _title = "登录";
         public string Title
         {
@@ -26,7 +30,7 @@ namespace Main.ViewModels
         public LoginWindowViewModel()
         {
             LoginCommand = new DelegateCommand<LoginInfo>(Login);
-            LoginInfo.UserName = "Admin";
+            LoginInfo.UserName = "admin";
             LoginInfo.Password = "123456";
         }
 
@@ -34,7 +38,7 @@ namespace Main.ViewModels
         {
             if (loginInfo.UserName == "admin" && loginInfo.Password == "123456")
             {
-                MessageBox.Show("登录成功");
+                OnLoginSucess();
             }
             else
             {

@@ -21,7 +21,7 @@ namespace Main.Views
             if (!DesignerProperties.GetIsInDesignMode(this))
             {
                 _viewModel = new LoginWindowViewModel();
-                //_viewModel.LoginSuccess += OnLoginSuccess;
+                _viewModel.OnLoginSucess += OnLoginSuccess;
                 DataContext = _viewModel;
             }
         }
@@ -33,8 +33,8 @@ namespace Main.Views
 
         private void OnLoginSuccess()
         {
-            var mainWindow = _container.Resolve<MainWindow>();
-            mainWindow.Show();
+            //不能删除 删了 MainWindow 就出不来了
+            _container.Resolve<MainWindow>();
             Close();
         }
     }

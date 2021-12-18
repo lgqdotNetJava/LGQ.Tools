@@ -1,0 +1,16 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/PersonModule/obj
+/ModuleAModule/obj
+/Main/obj
+/LGQ.Tools.Share/obj
+/.vs
+/packages
+/Main/bin/Debug
+/LGQ.Tools.Share/bin/Debug
+/PersonModule/bin/Debug
+/ModuleAModule/bin/Debug
+/OAModule/bin/Debug
+/OAModule/obj

@@ -14,11 +14,24 @@ namespace Main
     /// </summary>
     public partial class App : PrismApplication
     {
+        bool IsLogin = false;
         //License:NTQ4MzIzQDMxMzkyZTMzMmUzMG01TyttcjliR1NrVW90eExLVmx2ZEptb3hBSEk2TGp3UllER0lZTkQ4T0U9
+
+        public App()
+        {
+        }
+
         protected override Window CreateShell()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTQ4MzIzQDMxMzkyZTMzMmUzMG01TyttcjliR1NrVW90eExLVmx2ZEptb3hBSEk2TGp3UllER0lZTkQ4T0U9");
-            return Container.Resolve<LoginWindow>();
+            if (!IsLogin)
+            {
+                var loginWindow = Container.Resolve<LoginWindow>();
+                loginWindow.ShowDialog();
+            }
+            //不能直接在构造函数中使用，会导致在MainWindow设置成Shell之前关闭应用
+            ShutdownMode = ShutdownMode.OnMainWindowClose;
+            return Container.Resolve<MainWindow>();
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -26,9 +39,10 @@ namespace Main
 
         }
 
-        protected override IModuleCatalog CreateModuleCatalog()
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-            return new ConfigurationModuleCatalog();
+            moduleCatalog.AddModule<PersonModule.PersonModule>();
+            moduleCatalog.AddModule<OAModule.OAModuleModule>();
         }
 
         protected override void ConfigureRegionAdapterMappings(RegionAdapterMappings regionAdapterMappings)

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1300
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{296524A4-A21E-45B8-8A5D-0BA6F5ECAFF0}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{6052ECA5-FF50-4DFC-AC8C-4CDFC19C2317}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonModule", "PersonModule\PersonModule.csproj", "{B464CF1D-AA4E-403F-8543-E5094F2626D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAModule", "OAModule\OAModule.csproj", "{03FD0723-A206-4F37-BCF4-4ED61120AE58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{B464CF1D-AA4E-403F-8543-E5094F2626D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B464CF1D-AA4E-403F-8543-E5094F2626D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B464CF1D-AA4E-403F-8543-E5094F2626D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03FD0723-A206-4F37-BCF4-4ED61120AE58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03FD0723-A206-4F37-BCF4-4ED61120AE58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03FD0723-A206-4F37-BCF4-4ED61120AE58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03FD0723-A206-4F37-BCF4-4ED61120AE58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{85FBEA66-68FB-4CC7-A3C6-FB492C4F2616} = {6052ECA5-FF50-4DFC-AC8C-4CDFC19C2317}
 		{B464CF1D-AA4E-403F-8543-E5094F2626D6} = {6052ECA5-FF50-4DFC-AC8C-4CDFC19C2317}
+		{03FD0723-A206-4F37-BCF4-4ED61120AE58} = {6052ECA5-FF50-4DFC-AC8C-4CDFC19C2317}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6261893F-CE79-46B9-814B-B28474EC51E0}
