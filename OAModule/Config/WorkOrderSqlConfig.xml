@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sql domain="sqlDB">
+  <sql-command name="WorkOrderAccess.GetList">
+    <text>
+      <![CDATA[
+        SELECT ID,OA_ID,OrderName,OrderDesc,BeginDate,EndDate,OrderStatus,PublishStatus FROM WorkOrder
+      ]]>
+    </text>
+  </sql-command>
+</sql>

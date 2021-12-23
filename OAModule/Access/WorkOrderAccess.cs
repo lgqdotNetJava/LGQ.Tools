@@ -9,14 +9,14 @@ namespace OAModule.Access
 {
     public static class WorkOrderAccess
     {
-        private static string GetListSqlCommand { get; set; } = "SELECT ID,OA_ID,OrderName,OrderDesc,BeginDate,EndDate,OrderStatus,PublishStatus FROM WorkOrder";
+        private static string GetListSqlCommand { get; set; } = "WorkOrderAccess.GetList";
 
         public static List<WorkOrder> GetList()
         {
             using (IDbConnection cnn = new SQLiteConnection(OAConfig.LoadConnectString()))
             {
                 cnn.Open();
-                var output = cnn.Query<WorkOrder>(GetListSqlCommand);
+                var output = cnn.Query<WorkOrder>(OAConfig.GetSqlCmd(GetListSqlCommand));
                 return output.ToList();
             }
         }

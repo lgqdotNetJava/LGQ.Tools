@@ -112,9 +112,12 @@
   <ItemGroup>
     <Folder Include="DLL\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\WorkOrderSqlConfig.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>xcopy /e /r /y $(ProjectDir)bin\Debug $(SolutionDir)Main\bin\Debug
+xcopy /e /r /y $(ProjectDir)Config $(SolutionDir)Main\bin\Debug\Config</PostBuildEvent>
   </PropertyGroup>
 </Project>

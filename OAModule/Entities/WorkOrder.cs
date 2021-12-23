@@ -82,7 +82,7 @@ namespace OAModule.Entities
         /// <summary>
         /// 工单发布状态
         /// </summary>
-        public int publishStatus
+        public int PublishStatus
         {
             get { return m_PublishStatus; }
             set { m_PublishStatus = value; OnPropertyChanged(); }

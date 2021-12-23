@@ -8,8 +8,17 @@
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
     <Grid>
-        <Syncfusion:SfDataGrid AutoGenerateColumns="True" ItemsSource="{Binding WorkOrderList}">
-            
+        <Syncfusion:SfDataGrid AllowEditing="False" ColumnSizer="AutoLastColumnFill"  ItemsSource="{Binding WorkOrderList}">
+            <Syncfusion:SfDataGrid.Columns>
+                <Syncfusion:GridTextColumn HeaderText="ID" MappingName="ID" />
+                <Syncfusion:GridTextColumn HeaderText="OA ID" MappingName="OA_ID" />
+                <Syncfusion:GridTextColumn HeaderText="工单名称" MappingName="OrderName" />
+                <Syncfusion:GridTextColumn HeaderText="开始时间" MappingName="BeginDate" />
+                <Syncfusion:GridTextColumn HeaderText="结束时间" MappingName="EndDate" />
+                <Syncfusion:GridTextColumn HeaderText="工单状态" MappingName="OrderStatus" />
+                <Syncfusion:GridTextColumn HeaderText="发布状态" MappingName="PublishStatus" />
+                <Syncfusion:GridTextColumn HeaderText="工单备注" MappingName="OrderDesc" />
+            </Syncfusion:SfDataGrid.Columns>
         </Syncfusion:SfDataGrid>
     </Grid>
 </UserControl>
