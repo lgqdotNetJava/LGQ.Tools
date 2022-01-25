@@ -15,7 +15,7 @@ namespace Main
     public partial class App : PrismApplication
     {
         bool IsLogin = false;
-        //License:NTQ4MzIzQDMxMzkyZTMzMmUzMG01TyttcjliR1NrVW90eExLVmx2ZEptb3hBSEk2TGp3UllER0lZTkQ4T0U9
+        //License:NTYwNzc5QDMxMzkyZTM0MmUzMEYvdEw5TkFmTlNqYWxxUWN2K0pGMEY0eWRjYlFBeXdtT1FraEFZY0FLTVU9
 
         public App()
         {
@@ -23,15 +23,22 @@ namespace Main
 
         protected override Window CreateShell()
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTQ4MzIzQDMxMzkyZTMzMmUzMG01TyttcjliR1NrVW90eExLVmx2ZEptb3hBSEk2TGp3UllER0lZTkQ4T0U9");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTYwNzc5QDMxMzkyZTM0MmUzMEYvdEw5TkFmTlNqYWxxUWN2K0pGMEY0eWRjYlFBeXdtT1FraEFZY0FLTVU9");
             if (!IsLogin)
             {
                 var loginWindow = Container.Resolve<LoginWindow>();
-                loginWindow.ShowDialog();
+                bool? result= loginWindow.ShowDialog();
             }
             //不能直接在构造函数中使用，会导致在MainWindow设置成Shell之前关闭应用
-            ShutdownMode = ShutdownMode.OnMainWindowClose;
-            return Container.Resolve<MainWindow>();
+            try
+            {
+                ShutdownMode = ShutdownMode.OnMainWindowClose;
+                return Container.Resolve<MainWindow>();
+            }
+            catch (System.Exception)
+            {
+                return null;
+            }
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

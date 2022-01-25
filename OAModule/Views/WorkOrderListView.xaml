@@ -6,19 +6,64 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              xmlns:prism="http://prismlibrary.com/"
-             prism:ViewModelLocator.AutoWireViewModel="True" >
-    <Grid>
-        <Syncfusion:SfDataGrid AllowEditing="False" ColumnSizer="AutoLastColumnFill"  ItemsSource="{Binding WorkOrderList}">
-            <Syncfusion:SfDataGrid.Columns>
-                <Syncfusion:GridTextColumn HeaderText="ID" MappingName="ID" />
-                <Syncfusion:GridTextColumn HeaderText="OA ID" MappingName="OA_ID" />
-                <Syncfusion:GridTextColumn HeaderText="工单名称" MappingName="OrderName" />
-                <Syncfusion:GridTextColumn HeaderText="开始时间" MappingName="BeginDate" />
-                <Syncfusion:GridTextColumn HeaderText="结束时间" MappingName="EndDate" />
-                <Syncfusion:GridTextColumn HeaderText="工单状态" MappingName="OrderStatus" />
-                <Syncfusion:GridTextColumn HeaderText="发布状态" MappingName="PublishStatus" />
-                <Syncfusion:GridTextColumn HeaderText="工单备注" MappingName="OrderDesc" />
-            </Syncfusion:SfDataGrid.Columns>
-        </Syncfusion:SfDataGrid>
-    </Grid>
+             prism:ViewModelLocator.AutoWireViewModel="True">
+
+    <UserControl.Resources>
+        <Style x:Key="FormLabel" TargetType="TextBlock">
+            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style x:Key="FormInput">
+            <Setter Property="Control.Margin" Value="3"></Setter>
+            <Setter Property="Control.FontSize" Value="15"></Setter>
+            <Setter Property="Control.VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Control.Width" Value="200"></Setter>
+        </Style>
+        <Style x:Key="GridMain" TargetType="Grid">
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Style="{StaticResource GridMain}" MinHeight="480" MinWidth="800" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="5"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Height="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="工单名称:" Padding="2" Style="{StaticResource FormLabel}"></TextBlock>
+                <TextBox Grid.Column="1" Style="{StaticResource FormInput}"></TextBox>
+                <TextBlock Grid.Column="2" Text="时间:" Style="{StaticResource FormLabel}"></TextBlock>
+                <TextBox Grid.Column="3"  Style="{StaticResource FormInput}"></TextBox>
+                <TextBlock Grid.Column="4" Text="工单状态:" Style="{StaticResource FormLabel}"></TextBlock>
+                <TextBox Grid.Column="5"  Style="{StaticResource FormInput}"></TextBox>
+                <TextBlock Grid.Column="6" Text="发布状态:" Style="{StaticResource FormLabel}"></TextBlock>
+                <TextBox Grid.Column="7"  Style="{StaticResource FormInput}"></TextBox>
+                <Button Grid.Column="8" Width="80" Height="21" HorizontalAlignment="Left" Content="查询" Command="{Binding WorkOrderListQueryCommand}"></Button>
+            </Grid>
+            <Syncfusion:SfDataGrid Grid.Row="2" AllowEditing="False" ColumnSizer="AutoLastColumnFill"  ItemsSource="{Binding WorkOrderList}">
+                <Syncfusion:SfDataGrid.Columns>
+                    <Syncfusion:GridTextColumn HeaderText="ID" MappingName="ID" />
+                    <Syncfusion:GridTextColumn HeaderText="OA ID" MappingName="OA_ID" />
+                    <Syncfusion:GridTextColumn HeaderText="工单名称" MappingName="OrderName" />
+                    <Syncfusion:GridTextColumn HeaderText="开始时间" MappingName="BeginDate" />
+                    <Syncfusion:GridTextColumn HeaderText="结束时间" MappingName="EndDate" />
+                    <Syncfusion:GridTextColumn HeaderText="工单状态" MappingName="OrderStatus" />
+                    <Syncfusion:GridTextColumn HeaderText="发布状态" MappingName="PublishStatus" />
+                    <Syncfusion:GridTextColumn HeaderText="工单备注" MappingName="OrderDesc" />
+                </Syncfusion:SfDataGrid.Columns>
+            </Syncfusion:SfDataGrid>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

@@ -5,6 +5,5 @@
              xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
              xmlns:local="clr-namespace:Main">
     <Application.Resources>
-        <Style TargetType="SfDataGrid"></Style>
     </Application.Resources>
 </prism:PrismApplication>
